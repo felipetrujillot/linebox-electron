@@ -3,7 +3,7 @@ const { PosPrinter } = pkg
 
 export const newPrint = (data: any) => {
     const options = {
-        preview: true,
+        preview: false,
         margin: '0 30px 0 0',
         copies: 1,
         printerName: 'XP-58',
