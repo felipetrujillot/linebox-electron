@@ -1,41 +1,5 @@
 import { app, BrowserWindow } from 'electron'
-import pkg from 'electron-pos-printer'
-const { PosPrinter } = pkg
-const printer = () => {
-    const options = {
-        preview: false,
-        margin: '0 0 0 0',
-        copies: 1,
-        printerName: 'XP-58',
-        boolean: true,
-        timeOutPerLine: 400,
-        pageSize: '58mm' as const, // page size
-    }
-
-    const data = [
-        {
-            type: 'text' as const, // 'text' | 'barCode' | 'qrCode' | 'image' | 'table
-            value: 'SAMPLE HEADING',
-            style: { fontWeight: '700', textAlign: 'center', fontSize: '24px' },
-        },
-        {
-            type: 'text' as const, // 'text' | 'barCode' | 'qrCode' | 'image' | 'table'
-            value: 'Secondary text',
-            style: {
-                textDecoration: 'underline',
-                fontSize: '10px',
-                textAlign: 'center',
-                color: 'red',
-            },
-        },
-    ]
-
-    PosPrinter.print(data, options)
-        .then(console.log)
-        .catch((error) => {
-            console.error(error)
-        })
-}
+import server from './server.js'
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -44,8 +8,14 @@ const createWindow = () => {
     })
 
     win.loadFile('../index.html')
+    const ipAddress = '192.168.1.109' // Replace 'YOUR_IP_ADDRESS' with your actual IP address
 
-    printer()
+    const port = 5555
+
+    server.listen(port, ipAddress, () => {
+        console.log(`Express server running on http://localhost:${port}`)
+    })
+    //printer()
 }
 
 app.whenReady().then(() => {
