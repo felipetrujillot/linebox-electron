@@ -14,6 +14,11 @@ const printer = () => {
 
     const data = [
         {
+            type: 'text' as const, // 'text' | 'barCode' | 'qrCode' | 'image' | 'table
+            value: 'SAMPLE HEADING',
+            style: { fontWeight: '700', textAlign: 'center', fontSize: '24px' },
+        },
+        {
             type: 'text' as const, // 'text' | 'barCode' | 'qrCode' | 'image' | 'table'
             value: 'Secondary text',
             style: {
