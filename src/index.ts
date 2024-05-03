@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import server from './server.js'
+import { newPrint } from './print.js'
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -8,7 +9,9 @@ const createWindow = () => {
     })
 
     win.loadFile('../index.html')
-    const ipAddress = '192.168.1.109' // Replace 'YOUR_IP_ADDRESS' with your actual IP address
+
+    //newPrint(message)
+    const ipAddress = '192.168.1.109'
 
     const port = 5555
 
