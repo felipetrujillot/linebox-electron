@@ -8,6 +8,7 @@ export const newPrint = (data: any) => {
         margin: '0 30px 0 0',
         copies: 1,
         printerName: '',
+        silent: true,
         boolean: true,
         timeOutPerLine: 400,
         pageSize: '58mm' as const, // page size
