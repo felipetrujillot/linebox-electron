@@ -1,0 +1,20 @@
+{
+    "name": "linebox-electron",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "tsc && electron dist/.",
+        "bb": "electron src/."
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^30.0.2",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "electron-pos-printer": "1.3.6"
+    }
+}
